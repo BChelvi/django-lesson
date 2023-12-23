@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des Animaux</title>
+</head>
+<body>
+    <h1>Liste des Animaux</h1>
+    <ul>
+        {% for animal in animals %}
+            <li>{{ animal.name }} ({{ animal.species.name }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
