@@ -1,9 +1,9 @@
 # Django lesson
 
 ## Getting started
-This is a template you have to follow for your application architecture.
+This is a correction example of the Django lesson you have taken.
 
-Clone it, replace with your data, update this file...
+Clone it, replace with your data...
 
 If you struggle to edit this file, the format **.md** is called MarkDown, read the doc :)
 
