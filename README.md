@@ -31,6 +31,8 @@ List here the steps to follow to run the application.
 
 ## How to use
 Run the following command to launch the Django server :
+- `python manage.py migrate`
+- `python manage.py createsuperuser`
 - `python manage.py runserver`
 
 
