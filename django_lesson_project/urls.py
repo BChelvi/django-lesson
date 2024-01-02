@@ -25,6 +25,7 @@ router = routers.DefaultRouter()
 
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
+router.register(r'animals', AnimalViewSet)
 
 admin.site.site_header = "Projet Django Lesson"
 
@@ -39,6 +40,8 @@ urlpatterns = [
     path('zoo/hello/', say_hello),
     path('zoo/hello_template/', say_hello_with_template),
     path('zoo/animal_list/', animal_list),
+
+    path('user_detail/<int:id>/', UserDetail.as_view(), name='user_detail'),
 
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
