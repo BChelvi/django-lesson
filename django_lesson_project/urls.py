@@ -17,11 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from zoo.views import say_hello, say_hello_with_template, animal_list
+from rest_framework import routers
+
+from zoo.views import *
+
+router = routers.DefaultRouter()
+
+router.register(r'users', UserViewSet)
+router.register(r'groups', GroupViewSet)
 
 admin.site.site_header = "Projet Django Lesson"
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
 
     # Urls from the area_manager app
@@ -31,4 +39,6 @@ urlpatterns = [
     path('zoo/hello/', say_hello),
     path('zoo/hello_template/', say_hello_with_template),
     path('zoo/animal_list/', animal_list),
+
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
