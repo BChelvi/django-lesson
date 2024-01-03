@@ -4,12 +4,14 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
 from zoo.models import Animal
+from zoo.views import ZoneSerializer
 
 
 class AnimalSerializer(serializers.ModelSerializer):
+    zone_extended = ZoneSerializer(source="zone", read_only=True)
     class Meta:
         model = Animal
-        fields = ['id', 'name', 'birth_date', 'species', 'diet', 'DIET_CHOICES']
+        fields = ['id', 'name', 'birth_date', 'species', 'diet', 'DIET_CHOICES', 'zone', 'zone_extended']
 
 
 class AnimalViewSet(viewsets.ModelViewSet):

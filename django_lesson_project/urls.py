@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import debug_toolbar
 from django.contrib import admin
 from django.urls import path, include
 
@@ -26,6 +27,8 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
 router.register(r'animals', AnimalViewSet)
+router.register(r'zones', ZoneViewSet)
+router.register(r'species', SpeciesViewSet)
 
 admin.site.site_header = "Projet Django Lesson"
 
@@ -44,4 +47,5 @@ urlpatterns = [
     path('user_detail/<int:id>/', UserDetail.as_view(), name='user_detail'),
 
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('__debug__/', include(debug_toolbar.urls)),
 ]

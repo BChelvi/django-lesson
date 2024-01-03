@@ -4,3 +4,4 @@ django-environ
 djangorestframework
 django-filter
 markdown
+django-debug-toolbar
