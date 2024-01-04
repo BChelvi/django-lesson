@@ -29,12 +29,15 @@ router.register(r'groups', GroupViewSet)
 router.register(r'animals', AnimalViewSet)
 router.register(r'zones', ZoneViewSet)
 router.register(r'species', SpeciesViewSet)
+router.register(r'keepers', KeeperViewSet)
 
 admin.site.site_header = "Projet Django Lesson"
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('admin/', admin.site.urls),
+
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('my_super_admin_for_my_super_project/', admin.site.urls),
 
     # Urls from the area_manager app
     path('area_manager/', include('area_manager.urls')),

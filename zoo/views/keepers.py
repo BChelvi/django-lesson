@@ -1,11 +1,14 @@
 from rest_framework import serializers, viewsets, permissions
+
 from zoo.models import Keeper
+from zoo.views import UserSerializer
 
 
 class KeeperSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
     class Meta:
         model = Keeper
-        fields = ['id', 'name', 'email', 'hire_date']
+        fields = ['id', 'name', 'email', 'hire_date', 'user']
 
 
 class KeeperViewSet(viewsets.ModelViewSet):

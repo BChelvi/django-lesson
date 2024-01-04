@@ -8,6 +8,12 @@ class ZoneSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'climate', 'area', 'keepers']
 
 
+class SimplifiedZoneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Zone
+        fields = ['id', 'name', 'climate']
+
+
 class ZoneViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows animals to be viewed or edited.
